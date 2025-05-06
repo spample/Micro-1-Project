@@ -70,15 +70,19 @@ void main() {
     while (1) {
         water_level = ADC_Read(0);  // RA0
         light_level = ADC_Read(1);  // RA1
+        
+        // Display water level
+        sprintf(buffer, "MEGATRON PEPPER");
+        SSD1306_Out16(0, 0, buffer, 1);
 
         // Display water level
         sprintf(buffer, "Water: %-4u", water_level);
-        SSD1306_Out16(0, 0, buffer, 1);
+        SSD1306_Out16(3, 0, buffer, 1);
 
         // Display light level
         sprintf(buffer, "Light: %-4u", light_level);
-        SSD1306_Out16(2, 0, buffer, 1);
+        SSD1306_Out16(5, 0, buffer, 1);
 
-        __delay_ms(1000);
+        __delay_ms(100);
     }
 }
